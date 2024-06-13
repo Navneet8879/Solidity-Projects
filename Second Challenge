@@ -1,0 +1,21 @@
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.7;
+
+contract LoopStressTest {
+
+    uint public lastComputedValue;
+
+    // Function to perform a stress test with a for loop
+    function stressTest(uint iterations) public {
+        uint value = 0;
+        for (uint i = 0; i < iterations; i++) {
+            value += i; // Simple operation to increase gas usage
+        }
+        lastComputedValue = value;
+    }
+
+    // Function to get the last computed value
+    function getLastComputedValue() public view returns (uint) {
+        return lastComputedValue;
+    }
+}
